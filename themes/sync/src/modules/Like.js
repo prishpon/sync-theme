@@ -9,6 +9,7 @@ class Like{
          $(".like-box").on("click", this.ourClickDispatcher.bind(this));
     }
 
+    
     //methods
     ourClickDispatcher(e){
        var currentLikeBox = $(e.target).closest(".like-box");
@@ -21,10 +22,28 @@ class Like{
     }
 
     createLike(){
-       alert("To create");
+       $.ajax({
+          url:syncData.root_url + '/wp-json/sync/v1/manageLike',
+          type:'POST',
+          success:(response)=>{
+               console.log(response);
+          },
+          error:(response)=>{
+               console.log(response);
+          }
+       })
     }
     deleteLike(){
-        alert("To delete");
+     $.ajax({
+          url:syncData.root_url + '/wp-json/sync/v1/manageLike',
+          type:'DELETE',
+          success:(response)=>{
+               console.log(response);
+          },
+          error:(response)=>{
+               console.log(response);
+          }
+       })
     }
 }
 

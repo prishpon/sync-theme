@@ -2152,10 +2152,28 @@ class Like {
     }
   }
   createLike() {
-    alert("To create");
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+      url: syncData.root_url + '/wp-json/sync/v1/manageLike',
+      type: 'POST',
+      success: response => {
+        console.log(response);
+      },
+      error: response => {
+        console.log(response);
+      }
+    });
   }
   deleteLike() {
-    alert("To delete");
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+      url: syncData.root_url + '/wp-json/sync/v1/manageLike',
+      type: 'DELETE',
+      success: response => {
+        console.log(response);
+      },
+      error: response => {
+        console.log(response);
+      }
+    });
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Like);
