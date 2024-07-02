@@ -2153,6 +2153,9 @@ class Like {
   }
   createLike(currentLikeBox) {
     jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+      beforeSend: xhr => {
+        xhr.setRequestHeader("X-WP-Nonce", syncData.nonce);
+      },
       url: syncData.root_url + '/wp-json/sync/v1/manageLike',
       type: 'POST',
       data: {
