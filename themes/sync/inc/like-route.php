@@ -50,6 +50,13 @@ function createLike($data){
    
 }
 
-function deleteLike(){
-    return 'delete a like';
+function deleteLike($data){
+    $likeId = sanitize_text_field($data['like']);
+
+    if(get_current_user_id() == get_post_field( 'post_author', $likeId) AND get_post_type($likeId)=='like'){
+        wp_delete_post($likeId,false);
+        return 'Congrats,like deleted';
+    }else{
+        die("you dont have permission to delete that");
+    }
 }

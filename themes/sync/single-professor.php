@@ -53,9 +53,9 @@
 
 
             ?>
-            <span class="like-box" data-professor="<?php the_ID(); ?>" data-exists="<?php echo $existStatus; ?>">
-                <i class="fa fa-heart-o" aria-hoddin="true"></i>
-                <i class="fa fa-heart" aria-hoddin="true"></i>
+            <span class="like-box" data-like="<?php if(isset($existQuery->posts[0]->ID)){echo $existQuery->posts[0]->ID;} ?>" data-professor="<?php the_ID(); ?>" data-exists="<?php echo $existStatus; ?>">
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                <i class="fa fa-heart" aria-hidden="true"></i>
                 <span class="like-count"><?php echo $likeCount->found_posts; ?></span>
             </span>
             <?php the_content(); ?>
